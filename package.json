@@ -1,16 +1,22 @@
 {
-  "name": "courseexplorer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "firebase": "^9.14.0",
-    "parcel": "^2.8.0"
-  }
+	"name": "courseexplorer",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "parcel serve src/*.html --public-url / --dist-dir dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bootstrap": "^5.2.3",
+		"firebase": "^9.14.0"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.8.0",
+		"parcel": "^2.8.0",
+		"process": "^0.11.10"
+	}
 }

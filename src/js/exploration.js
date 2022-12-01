@@ -13,7 +13,41 @@ const db = getDatabase();
 const coursesRef = ref(db, "courses/" + getSelectedCourse());
 
 onValue(coursesRef, (snapshot) => {
-	const data = snapshot.toJSON();
-	for (let obj in data) {
+	let data = snapshot.toJSON();
+
+	let container = document.createElement("div");
+	container.className = "container";
+	var contentbox = document.createElement("div");
+	contentbox.className = "content-box";
+
+	let h1 = document.createElement("h1");
+	h1.innerHTML = data["header-text"];
+
+	let p = document.createElement("p");
+	p.innerHTML = data["article-text"];
+
+	contentbox.append(h1, p);
+
+	var trackcontainer = document.createElement("div");
+	for (obj in data["tracks"]) {
+		let track = document.createElement("h2");
+		track.innerHTML = data["tracks"][obj]["track-name"];
+
+		let text = document.createElement("p");
+		text.innerHTML = data["tracks"][obj]["track-text"];
+
+		let pptcontainer = document.createElement("div");
+		pptcontainer.id = "ppt-container";
+
+		let frame = document.createElement("iframe");
+		frame.src = data["tracks"][obj]["track-ppt"];
+		frame.width = "1080" + "px";
+		frame.height = "720" + "px";
+		pptcontainer.appendChild(frame);
+
+		trackcontainer.append(track, text, pptcontainer);
 	}
+	contentbox.append(trackcontainer);
+	container.appendChild(contentbox);
+	document.body.appendChild(container);
 });

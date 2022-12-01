@@ -1,0 +1,40 @@
+.jumbotron {
+	background-image: url(../images/DLSUD-rotonda.jpg) no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.push-spaces {
+	padding-top: 1em;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.card {
+	width: 49%;
+}
+
+@media (max-width: 768px) {
+	.card-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.card {
+		width: 99%;
+	}
+	.card-img-top {
+		height: 200px;
+		object-fit: cover;
+	}
+}
+
+#ppt-container {
+	margin: 3rem 0 3rem 0;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+}
