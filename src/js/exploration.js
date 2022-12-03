@@ -15,9 +15,10 @@ function getSelectedCourse() {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-const navcoursesRef = ref(db, "courses/");
+const coursesRef = ref(db, "courses/");
+const selectedcourse = getSelectedCourse();
 
-onValue(navcoursesRef, (snapshot) => {
+onValue(coursesRef, (snapshot) => {
 	const data = snapshot.toJSON();
 	var ul = document.getElementById("dropdown-menu");
 
@@ -33,12 +34,6 @@ onValue(navcoursesRef, (snapshot) => {
 		li.appendChild(a);
 		ul.appendChild(li);
 	}
-});
-
-const coursesRef = ref(db, "courses/" + getSelectedCourse());
-
-onValue(coursesRef, (snapshot) => {
-	let data = snapshot.toJSON();
 
 	let container = document.createElement("div");
 	container.className = "container";
@@ -46,26 +41,26 @@ onValue(coursesRef, (snapshot) => {
 	contentbox.className = "content-box";
 
 	let h1 = document.createElement("h1");
-	h1.innerHTML = data["header-text"];
+	h1.innerHTML = data[selectedcourse]["header-text"];
 
 	let p = document.createElement("p");
-	p.innerHTML = data["article-text"];
+	p.innerHTML = data[selectedcourse]["article-text"];
 
 	contentbox.append(h1, p);
 
 	var trackcontainer = document.createElement("div");
-	for (obj in data["tracks"]) {
+	for (obj in data[selectedcourse]["tracks"]) {
 		let track = document.createElement("h2");
-		track.innerHTML = data["tracks"][obj]["track-name"];
+		track.innerHTML = data[selectedcourse]["tracks"][obj]["track-name"];
 
 		let text = document.createElement("p");
-		text.innerHTML = data["tracks"][obj]["track-text"];
+		text.innerHTML = data[selectedcourse]["tracks"][obj]["track-text"];
 
 		let pptcontainer = document.createElement("div");
 		pptcontainer.id = "ppt-container";
 
 		let frame = document.createElement("iframe");
-		frame.src = data["tracks"][obj]["track-ppt"];
+		frame.src = data[selectedcourse]["tracks"][obj]["track-ppt"];
 		frame.width = "1080" + "px";
 		frame.height = "720" + "px";
 		pptcontainer.appendChild(frame);
@@ -76,3 +71,5 @@ onValue(coursesRef, (snapshot) => {
 	container.appendChild(contentbox);
 	document.body.appendChild(container);
 });
+
+onValue(coursesRef, (snapshot) => {});
