@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { firebaseConfig } from "./firebaseconfig";
 import { Header } from "./components";
-import { Button } from "bootstrap";
 
 //Adds the navigation bar
 customElements.define("main-header", Header);
@@ -18,11 +17,13 @@ const db = getDatabase();
 
 const coursesRef = ref(db, "courses/");
 const selectedcourse = getSelectedCourse();
+var data;
 
 onValue(coursesRef, (snapshot) => {
-	const data = snapshot.toJSON();
+	data = snapshot.toJSON();
 	var ul = document.getElementById("dropdown-menu");
 
+	//populate select courses in navbar
 	for (let element in data) {
 		let li = document.createElement("li");
 		let a = document.createElement("a");
@@ -36,8 +37,11 @@ onValue(coursesRef, (snapshot) => {
 		ul.appendChild(li);
 	}
 
+	var exploration = document.getElementById("exploration-content");
+
+	//page content
 	let container = document.createElement("div");
-	container.className = "container";
+	container.className = "container mt-4";
 	var contentbox = document.createElement("div");
 	contentbox.className = "content-box";
 
@@ -53,10 +57,10 @@ onValue(coursesRef, (snapshot) => {
 
 	for (obj in data[selectedcourse]["tracks"]) {
 		let track = document.createElement("div");
-		track.className = "mt-5 mb-5";
+		track.className = "mt-4 mb-4";
 
 		let trackname = document.createElement("h2");
-		trackname.innerHTML = data[selectedcourse]["tracks"][obj]["track-name"];
+		trackname.innerHTML = obj;
 
 		let tracktext = document.createElement("p");
 		tracktext.innerHTML = data[selectedcourse]["tracks"][obj]["track-text"];
@@ -73,31 +77,27 @@ onValue(coursesRef, (snapshot) => {
 
 			let cardtitle = document.createElement("h4");
 			cardtitle.className = "card-title";
-			cardtitle.innerHTML =
-				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-name"];
-
-			let cardsubtitle = document.createElement("h5");
-			cardsubtitle.className = "card-subtitle mb-2 text-muted";
-			cardsubtitle.innerHTML =
-				data[selectedcourse]["tracks"][obj]["track-name"] + " track";
+			cardtitle.innerHTML = obj2;
 
 			let cardtext = document.createElement("p");
 			cardtext.className = "card-text";
 			cardtext.innerHTML =
 				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-text"];
 
-			let cardlink = document.createElement("a");
-			cardlink.className = "card-link";
-			cardlink.innerHTML = "Start";
+			let cardlink = document.createElement("button");
+			cardlink.className = "btn btn-primary";
+			cardlink.innerHTML = "View topics and lessons";
+			let src =
+				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-text"];
 
-			cardbody.append(cardtitle, cardsubtitle, cardtext, cardlink);
+			cardbody.append(cardtitle, cardtext, cardlink);
 			card.append(cardbody);
 			track.append(card);
 		}
 		trackcontainer.append(track);
 	}
 	contentbox.append(trackcontainer);
-	container.appendChild(contentbox);
+	container.append(contentbox);
 	document.body.appendChild(container);
 });
 
