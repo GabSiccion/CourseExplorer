@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { firebaseConfig } from "./firebaseconfig";
 import { Header } from "./components";
+import { Button } from "bootstrap";
 
 //Adds the navigation bar
 customElements.define("main-header", Header);
@@ -47,29 +48,67 @@ onValue(coursesRef, (snapshot) => {
 	p.innerHTML = data[selectedcourse]["article-text"];
 
 	contentbox.append(h1, p);
-
 	var trackcontainer = document.createElement("div");
+	trackcontainer.id = "trackcontainer";
+
 	for (obj in data[selectedcourse]["tracks"]) {
-		let track = document.createElement("h2");
-		track.innerHTML = data[selectedcourse]["tracks"][obj]["track-name"];
+		let track = document.createElement("div");
+		track.className = "mt-5 mb-5";
 
-		let text = document.createElement("p");
-		text.innerHTML = data[selectedcourse]["tracks"][obj]["track-text"];
+		let trackname = document.createElement("h2");
+		trackname.innerHTML = data[selectedcourse]["tracks"][obj]["track-name"];
 
-		let pptcontainer = document.createElement("div");
-		pptcontainer.id = "ppt-container";
+		let tracktext = document.createElement("p");
+		tracktext.innerHTML = data[selectedcourse]["tracks"][obj]["track-text"];
 
-		let frame = document.createElement("iframe");
-		frame.src = data[selectedcourse]["tracks"][obj]["track-ppt"];
-		frame.width = "1080" + "px";
-		frame.height = "720" + "px";
-		pptcontainer.appendChild(frame);
+		track.append(trackname, tracktext);
 
-		trackcontainer.append(track, text, pptcontainer);
+		for (obj2 in data[selectedcourse]["tracks"][obj]["track-topics"]) {
+			var card = document.createElement("div");
+			card.className = "card m-1";
+			card.style = "width: 32rem";
+
+			let cardbody = document.createElement("div");
+			cardbody.className = "card-body";
+
+			let cardtitle = document.createElement("h4");
+			cardtitle.className = "card-title";
+			cardtitle.innerHTML =
+				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-name"];
+
+			let cardsubtitle = document.createElement("h5");
+			cardsubtitle.className = "card-subtitle mb-2 text-muted";
+			cardsubtitle.innerHTML =
+				data[selectedcourse]["tracks"][obj]["track-name"] + " track";
+
+			let cardtext = document.createElement("p");
+			cardtext.className = "card-text";
+			cardtext.innerHTML =
+				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-text"];
+
+			let cardlink = document.createElement("a");
+			cardlink.className = "card-link";
+			cardlink.innerHTML = "Start";
+
+			cardbody.append(cardtitle, cardsubtitle, cardtext, cardlink);
+			card.append(cardbody);
+			track.append(card);
+		}
+		trackcontainer.append(track);
 	}
 	contentbox.append(trackcontainer);
 	container.appendChild(contentbox);
 	document.body.appendChild(container);
 });
 
-onValue(coursesRef, (snapshot) => {});
+/*
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+ */
