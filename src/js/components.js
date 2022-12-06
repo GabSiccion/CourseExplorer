@@ -39,7 +39,7 @@ export class Header extends HTMLElement {
 							></ul>
 						</li>
 						<li class="nav-item active">
-							<a href="#" class="nav-link"> About </a>
+							<a href="about.html" class="nav-link"> About </a>
 						</li>
 					</ul>
 				</div>
