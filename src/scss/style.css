@@ -1,6 +1,5 @@
 .jumbotron {
-	background-image: url(../images/DLSUD-rotonda.jpg) no-repeat center center;
-	background-size: 100% 100%;
+	background: url(/src/images/DLSUD-rotonda.jpg) no-repeat center center;
 }
 
 .push-spaces {
@@ -10,7 +9,6 @@
 .card-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 }
 
 .card {
