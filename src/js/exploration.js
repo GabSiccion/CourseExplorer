@@ -20,10 +20,10 @@ const selectedcourse = getSelectedCourse();
 var data;
 
 onValue(coursesRef, (snapshot) => {
-	data = snapshot.toJSON();
+	const data = snapshot.toJSON();
 	var ul = document.getElementById("dropdown-menu");
+	ul.innerHTML = "";
 
-	//populate select courses in navbar
 	for (let element in data) {
 		let li = document.createElement("li");
 		let a = document.createElement("a");
@@ -37,8 +37,13 @@ onValue(coursesRef, (snapshot) => {
 		ul.appendChild(li);
 	}
 
-	var exploration = document.getElementById("exploration-content");
+	//page content
+	let contentbox = $(".content-box");
+	let test = document.createElement("h1");
+	test.innerHTML = "TEST";
+	contentbox.append(test);
 
+	/*
 	//page content
 	let container = document.createElement("div");
 	container.className = "container mt-4";
@@ -67,6 +72,9 @@ onValue(coursesRef, (snapshot) => {
 
 		track.append(trackname, tracktext);
 
+		let cardcontainer = document.createElement("div");
+		cardcontainer.className = "card-container";
+
 		for (obj2 in data[selectedcourse]["tracks"][obj]["track-topics"]) {
 			var card = document.createElement("div");
 			card.className = "card m-1";
@@ -92,13 +100,15 @@ onValue(coursesRef, (snapshot) => {
 
 			cardbody.append(cardtitle, cardtext, cardlink);
 			card.append(cardbody);
-			track.append(card);
+			cardcontainer.append(card);
 		}
+		track.append(cardcontainer);
 		trackcontainer.append(track);
 	}
 	contentbox.append(trackcontainer);
 	container.append(contentbox);
 	document.body.appendChild(container);
+	*/
 });
 
 /*

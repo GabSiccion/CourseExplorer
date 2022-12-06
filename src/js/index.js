@@ -14,6 +14,7 @@ const coursesRef = ref(db, "courses/");
 onValue(coursesRef, (snapshot) => {
 	const data = snapshot.toJSON();
 	var ul = document.getElementById("dropdown-menu");
+	ul.innerHTML = "";
 
 	for (let element in data) {
 		let li = document.createElement("li");

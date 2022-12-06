@@ -1,7 +1,7 @@
 export class Header extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = `
-      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light" id="nav" >
 			<div class="container">
 				<a href="#" class="navbar-brand mb-0 h1"> CourseExplorer </a>
 
