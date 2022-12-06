@@ -12,20 +12,22 @@
 }
 
 .card {
-	width: 49%;
+	width: 24rem;
+}
+
+.card-text {
+	min-height: 8rem;
+	max-height: 8rem;
+	overflow: hidden;
 }
 
 @media (max-width: 768px) {
 	.card-container {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 	}
 	.card {
-		width: 99%;
-	}
-	.card-img-top {
-		height: 200px;
-		object-fit: cover;
+		min-width: 24rem;
 	}
 }
 
