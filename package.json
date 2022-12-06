@@ -4,8 +4,8 @@
 	"description": "",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "parcel serve src/*.html --public-url / --dist-dir dist",
-		"build": "parcel build src/*.html --public-url / --dist-dir dist"
+		"start": "parcel serve src/index.html src/exploration.html --public-url / --dist-dir dist",
+		"build": "parcel build src/index.html src/exploration.html --public-url / --dist-dir dist"
 	},
 	"keywords": [],
 	"author": "",
