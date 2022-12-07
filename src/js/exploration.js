@@ -11,6 +11,10 @@ function getSelectedCourse() {
 	return parameter.get("course");
 }
 
+function isEmpty(obj) {
+	return Object.keys(obj).length === 0;
+}
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
@@ -20,7 +24,10 @@ const selectedcourse = getSelectedCourse();
 var data;
 
 onValue(coursesRef, (snapshot) => {
+	//JSON DATA
 	const data = snapshot.toJSON();
+
+	//NAV SELECT OPTIONS
 	var ul = document.getElementById("dropdown-menu");
 	ul.innerHTML = "";
 
@@ -37,7 +44,7 @@ onValue(coursesRef, (snapshot) => {
 		ul.appendChild(li);
 	}
 
-	//page content
+	//COURSE CONTENT
 	let contentbox = document.getElementById("content-box");
 	contentbox.innerHTML = "";
 
@@ -51,6 +58,8 @@ onValue(coursesRef, (snapshot) => {
 	p.innerHTML = data[selectedcourse]["article-text"];
 
 	container.append(h1, p);
+
+	//COURSE TRACKS
 	var trackcontainer = document.createElement("div");
 	trackcontainer.id = "trackcontainer";
 
@@ -85,14 +94,26 @@ onValue(coursesRef, (snapshot) => {
 			cardtext.innerHTML =
 				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-text"];
 
-			let cardlink = document.createElement("button");
-			cardlink.className = "btn btn-primary";
-			cardlink.innerHTML = "View topics and lessons";
-			cardlink.value =
-				data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-ppt"];
-			cardlink.addEventListener("click", function (src) {
-				console.log(cardlink.value);
-			});
+			let cardlink = document.createElement("a");
+			cardlink.role = "button";
+
+			if (
+				!isEmpty(
+					data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-ppt"]
+				)
+			) {
+				cardlink.className = "btn btn-success";
+				cardlink.href =
+					data[selectedcourse]["tracks"][obj]["track-topics"][obj2][
+						"topic-ppt"
+					];
+				cardlink.innerHTML = "View topics and lessons";
+				cardlink.target = "_blank";
+			} else {
+				cardlink.className = "btn btn-success disabled";
+				cardlink.innerHTML = "Not yet available";
+				cardlink.ariaDisabled = "true";
+			}
 
 			cardbody.append(cardtitle, cardtext, cardlink);
 			card.append(cardbody);
