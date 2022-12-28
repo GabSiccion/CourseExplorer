@@ -87,7 +87,7 @@ onValue(coursesRef, (snapshot) => {
 
 			let cardtitle = document.createElement("h5");
 			cardtitle.className = "card-title";
-			cardtitle.innerHTML = obj2;
+			cardtitle.innerHTML = data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-title"];;
 
 			let cardtext = document.createElement("p");
 			cardtext.className = "card-text";
