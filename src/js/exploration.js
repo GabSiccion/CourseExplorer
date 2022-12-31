@@ -63,7 +63,7 @@ onValue(coursesRef, (snapshot) => {
 	var trackcontainer = document.createElement("div");
 	trackcontainer.id = "trackcontainer";
 
-	for (obj in data[selectedcourse]["tracks"]) {
+	for (let obj in data[selectedcourse]["tracks"]) {
 		let track = document.createElement("div");
 		track.className = "mt-4 mb-4";
 
@@ -76,9 +76,9 @@ onValue(coursesRef, (snapshot) => {
 		track.append(trackname, tracktext);
 
 		let cardcontainer = document.createElement("div");
-		cardcontainer.className = "card-container overflow-auto";
+		cardcontainer.className = "card-container overflow-auto mb-4";
 
-		for (obj2 in data[selectedcourse]["tracks"][obj]["track-topics"]) {
+		for (let obj2 in data[selectedcourse]["tracks"][obj]["track-topics"]) {
 			var card = document.createElement("div");
 			card.className = "card m-1";
 
@@ -119,7 +119,30 @@ onValue(coursesRef, (snapshot) => {
 			card.append(cardbody);
 			cardcontainer.append(card);
 		}
-		track.append(cardcontainer);
+
+		let careercontainer = document.createElement("div");
+		careercontainer.className = "position-container";
+
+		let careerheader = document.createElement("h2");
+		careerheader.innerHTML = "Career Options";
+		careercontainer.append(careerheader);
+
+		for(let obj2 in data[selectedcourse]["tracks"][obj]["track-positions"]) {
+
+			let careername = document.createElement("p");
+			careername.className = "career-name text-success mr-4";
+			careername.innerHTML = data[selectedcourse]["tracks"][obj]["track-positions"][obj2]["position-title"];
+
+			let careersalary = document.createElement("p");
+			careersalary.innerHTML = data[selectedcourse]["tracks"][obj]["track-positions"][obj2]["position-salary"];
+
+			let careertitle = document.createElement("div");
+			careertitle.append(careername,careersalary)
+
+			careercontainer.append(careertitle);
+		}
+
+		track.append(cardcontainer,careercontainer);
 		trackcontainer.append(track);
 	}
 	container.append(trackcontainer);
