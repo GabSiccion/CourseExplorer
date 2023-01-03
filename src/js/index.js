@@ -12,20 +12,20 @@ const db = getDatabase();
 const coursesRef = ref(db, "courses/");
 
 onValue(coursesRef, (snapshot) => {
-	const data = snapshot.toJSON();
-	var ul = document.getElementById("dropdown-menu");
-	ul.innerHTML = "";
+  const data = snapshot.toJSON();
+  var ul = document.getElementById("dropdown-menu");
+  ul.innerHTML = "";
 
-	for (let element in data) {
-		let li = document.createElement("li");
-		let a = document.createElement("a");
-		a.className = "dropdown-item";
-		a.href =
-			"exploration.html?course=" +
-			data[element]["header-text"].replace(/\s+/g, "-");
-		a.innerHTML = data[element]["header-text"];
+  for (let element in data) {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    a.className = "dropdown-item";
+    a.href =
+      "exploration.html?course=" +
+      data[element]["headertext"].replace(/\s+/g, "-");
+    a.innerHTML = data[element]["headertext"];
 
-		li.appendChild(a);
-		ul.appendChild(li);
-	}
+    li.appendChild(a);
+    ul.appendChild(li);
+  }
 });

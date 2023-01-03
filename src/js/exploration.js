@@ -37,8 +37,8 @@ onValue(coursesRef, (snapshot) => {
     a.className = "dropdown-item";
     a.href =
       "exploration.html?course=" +
-      data[element]["header-text"].replace(/\s+/g, "-");
-    a.innerHTML = data[element]["header-text"];
+      data[element]["headertext"].replace(/\s+/g, "-");
+    a.innerHTML = data[element]["headertext"];
 
     li.appendChild(a);
     ul.appendChild(li);
@@ -52,10 +52,10 @@ onValue(coursesRef, (snapshot) => {
   container.className = "container mt-4";
 
   let h1 = document.createElement("h1");
-  h1.innerHTML = data[selectedcourse]["header-text"];
+  h1.innerHTML = data[selectedcourse]["headertext"];
 
   let p = document.createElement("p");
-  p.innerHTML = data[selectedcourse]["article-text"];
+  p.innerHTML = data[selectedcourse]["articletext"];
 
   container.append(h1, p);
 
@@ -71,14 +71,14 @@ onValue(coursesRef, (snapshot) => {
     trackname.innerHTML = obj;
 
     let tracktext = document.createElement("p");
-    tracktext.innerHTML = data[selectedcourse]["tracks"][obj]["track-text"];
+    tracktext.innerHTML = data[selectedcourse]["tracks"][obj]["tracktext"];
 
     track.append(trackname, tracktext);
 
     let cardcontainer = document.createElement("div");
     cardcontainer.className = "card-container overflow-auto mb-4";
 
-    for (let obj2 in data[selectedcourse]["tracks"][obj]["track-topics"]) {
+    for (let obj2 in data[selectedcourse]["tracks"][obj]["tracktopics"]) {
       var card = document.createElement("div");
       card.className = "card m-1";
 
@@ -88,28 +88,24 @@ onValue(coursesRef, (snapshot) => {
       let cardtitle = document.createElement("h5");
       cardtitle.className = "card-title";
       cardtitle.innerHTML =
-        data[selectedcourse]["tracks"][obj]["track-topics"][obj2][
-          "topic-title"
-        ];
+        data[selectedcourse]["tracks"][obj]["tracktopics"][obj2]["topic-title"];
 
       let cardtext = document.createElement("p");
       cardtext.className = "card-text";
       cardtext.innerHTML =
-        data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-text"];
+        data[selectedcourse]["tracks"][obj]["tracktopics"][obj2]["topictext"];
 
       let cardlink = document.createElement("a");
       cardlink.role = "button";
 
       if (
         !isEmpty(
-          data[selectedcourse]["tracks"][obj]["track-topics"][obj2]["topic-ppt"]
+          data[selectedcourse]["tracks"][obj]["tracktopics"][obj2]["topicppt"]
         )
       ) {
         cardlink.className = "btn btn-success";
         cardlink.href =
-          data[selectedcourse]["tracks"][obj]["track-topics"][obj2][
-            "topic-ppt"
-          ];
+          data[selectedcourse]["tracks"][obj]["tracktopics"][obj2]["topic-ppt"];
         cardlink.innerHTML = "View topics and lessons";
         cardlink.target = "_blank";
       } else {
@@ -130,18 +126,18 @@ onValue(coursesRef, (snapshot) => {
     careerheader.innerHTML = "Career Options";
     careercontainer.append(careerheader);
 
-    for (let obj2 in data[selectedcourse]["tracks"][obj]["track-careers"]) {
+    for (let obj2 in data[selectedcourse]["tracks"][obj]["trackcareers"]) {
       let careername = document.createElement("p");
       careername.className = "career-name text-success mr-4";
       careername.innerHTML =
-        data[selectedcourse]["tracks"][obj]["track-careers"][obj2][
-          "career-title"
+        data[selectedcourse]["tracks"][obj]["trackcareers"][obj2][
+          "careertitle"
         ];
 
       let careersalary = document.createElement("p");
       careersalary.innerHTML =
-        data[selectedcourse]["tracks"][obj]["track-careers"][obj2][
-          "career-salary"
+        data[selectedcourse]["tracks"][obj]["trackcareers"][obj2][
+          "careersalary"
         ];
 
       let careertitle = document.createElement("div");
