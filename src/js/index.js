@@ -16,14 +16,14 @@ onValue(coursesRef, (snapshot) => {
   var ul = document.getElementById("dropdown-menu");
   ul.innerHTML = "";
 
-  for (let element in data) {
+  for (let index in data) {
     let li = document.createElement("li");
     let a = document.createElement("a");
+
+    let { courseName } = data[index];
     a.className = "dropdown-item";
-    a.href =
-      "exploration.html?course=" +
-      data[element]["headertext"].replace(/\s+/g, "-");
-    a.innerHTML = data[element]["headertext"];
+    a.href = `exploration.html?course=${courseName.replace(/\s+/g, "_")}`;
+    a.innerHTML = courseName;
 
     li.appendChild(a);
     ul.appendChild(li);

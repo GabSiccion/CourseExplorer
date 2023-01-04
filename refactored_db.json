@@ -1,0 +1,146 @@
+{
+  "Computer_Science": {
+    "courseName": "Computer Science",
+    "courseText": "The Bachelor of Science in Computer Science curriculum educates students to be highly skilled and qualified in the fields of computer theory and applications; it trains them in abstract reasoning, analytical thinking, and research; and it includes a track in Intelligent Systems and Game Development. Graduates of this degree may pursue rewarding careers as applications developers, computer science instructors, researchers, trainers, database programmers/designers, mobile application developers, game developers, or system analysts. ",
+    "courseTracks": [
+      {
+        "trackName": "Game Developement",
+        "trackText": "This track involves designing and creating video games. It typically involves working with a team of programmers, artists, and designers to bring a game concept to life. The career path can involve working in a variety of roles, such as game designer, game artist, or game programmer, and can lead to positions such as lead designer or studio head.",
+        "trackTopics": [
+          {
+            "topicName": "Introduction to Game Programming",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21142&authkey=AEw2U0aCyPBl770&em=2",
+            "topicText": "Basics and a little introduction about Game Programming"
+          },
+          {
+            "topicName": "Game Programming",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21150&authkey=AP1NvDwHhqWVZuw&em=2",
+            "topicText": "Be introduced to the concepts of video game programming such as Game Design, and the basics of Unity Engine's user interface."
+          },
+          {
+            "topicName": "Introduction To Game Principles",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21149&authkey=AFc90MJaxHEqbGE&em=2",
+            "topicText": "Learn some of the Game Principles using the Unity Engine."
+          },
+          {
+            "topicName": "Algorithm and Complexity",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21141&authkey=AAWGpg002QSlGGc&em=2",
+            "topicText": "Introduction of how Computer Algorithms work"
+          }
+        ],
+        "trackCareers": [
+          {
+            "careerName": "Video Game Designer",
+            "careerText": "Video game designers turn ideas into playable video games. The responsibilities of a video game designer varies on the work given to them when developing a product. They could either contribute to gameplay mechanics, graphical quality, and or progression systems.",
+            "careerSalary": "₱799,417"
+          }
+        ]
+      },
+      {
+        "trackName": "Intelligent Systems",
+        "trackText": "This track focuses on the design and development of systems capable of doing activities that would ordinarily require human-level intellect. Machine learning, natural language processing, and robotics are examples of such fields. The intelligent systems track aims to develop systems that can handle complicated issues, adapt to changing surroundings, and make judgments based on data and previous experiences. Intelligent Systems are highly developed technological machines that sense and respond to their surroundings.",
+        "trackTopics": [
+          {
+            "topicName": "Algorithm and Complexity",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21136&authkey=AFkzC8WQ0U1HqQs&em=2",
+            "topicText": "Introduction of how Computer Algorithms work"
+          },
+          {
+            "topicName": "Intro to Machine Learning",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21138&authkey=AJsaf0gXGQHm6rw&em=2",
+            "topicText": "Learn about Machine Learning"
+          },
+          {
+            "topicName": "Natural Language Processing",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21137&authkey=ACGzEIj1Op9Y9d4&em=2",
+            "topicText": "Learn about Natural Language Processing"
+          },
+          {
+            "topicName": "Architecture and Organization",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21139&authkey=AJGkgYeVC9-W65k&em=2",
+            "topicText": "Learn about Architecture and Organization"
+          }
+        ],
+        "trackCareers": [
+          {
+            "careerName": "Systems Engineer",
+            "careerText": "A systems engineer will keep watch of the infrastructure and all of its installed systems and ensure these systems' availability.  They'll also monitor and test applications to check for potential errors and performance within these systems.",
+            "careerSalary": "₱779,751"
+          },
+          {
+            "careerName": "Data Analyst",
+            "careerText": "Data analysts gather data, analyze them then create reports to benefit the decision-making of their clients or companies. The responsibility of procuring the techinical requirements to gather, analyze, and break down the data also falls on them.",
+            "careerSalary": "₱553,081"
+          }
+        ]
+      }
+    ]
+  },
+  "Information_Technology": {
+    "courseName": "Information Technology",
+    "courseText": "The Bachelor of Science in Information Technology degree focuses on providing students with intensive instruction in the most recent IT ideas and applications. It offers a hands-on approach to learning about the numerous sides and cutting-edge applications of the IT sector, with a focus on Network Technology or Web Development. Graduates of this degree can pursue rewarding careers as database administrators, IT entrepreneurs, information security administrators, IT instructors, programmers, trainers, or researchers. They can also find work as researchers, information security/network administrators, technical support professionals, web administrators, web masters, or web developers. ",
+    "courseTracks": [
+      {
+        "trackName": "Networking",
+        "trackText": "This track teach the skills and knowledge required to design, implement, and maintain computer networks. This may include topics such as network architecture, protocols, security, and network management. A networking track may be aimed at preparing learners for careers in network administration or engineering, or it may be part of a broader computer science or information technology curriculum.",
+        "trackTopics": [
+          {
+            "topicName": "Introduction to Computer Studies Field",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21136&authkey=AFkzC8WQ0U1HqQs&em=2",
+            "topicText": "Learn about Personal Computers, Networking Concepts and Security, about Information Technology and many more"
+          },
+          {
+            "topicName": "Natural Language Processing",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21124&authkey=ABr36gOCAB1EtGY&em=2",
+            "topicText": "Learn about Natural Language Processing."
+          }
+        ],
+        "trackCareers": [
+          {
+            "careerName": "Network Administrator",
+            "careerText": "Network administrators ensure the capability of the companies' or clients' computer networks are operational. They may also provide training for the end users of said computer network.",
+            "careerSalary": "₱739,833"
+          },
+          {
+            "careerName": "Network Engineer",
+            "careerText": "Network engineers handle the installation, configuration, and firewalls of a computer network. Theyre also responsible for procuring the right equipment that the network needs for the best possible efficiency.",
+            "careerSalary": "₱435,149"
+          }
+        ]
+      },
+      {
+        "trackName": "Web Development",
+        "trackText": "This track teaches the skills required to build and maintain websites.These courses may cover a wide range of topics, including HTML, CSS, JavaScript, and other programming languages, as well as design and user experience principles, project management, and other related subjects. The goal of a web development track is to enable learners to become proficient in building and maintaining websites, either for their own use or for professional purposes.",
+        "trackTopics": [
+          {
+            "topicName": "App Development and Emerging Tech",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21123&authkey=ABG2tFJ_tfxEgek&em=2",
+            "topicText": "Learn about the Python Programming language."
+          },
+          {
+            "topicName": "Object Oriented Programming",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21132&authkey=AI9DzD_E04jv64Y&em=2",
+            "topicText": "Learn about Object Oriented Programming in JAVA"
+          },
+          {
+            "topicName": "Website Development",
+            "topicPowerpoint": "https://onedrive.live.com/embed?cid=A53F92B0D7385D3A&resid=A53F92B0D7385D3A%21131&authkey=AHY6cCeFa3sfpPg&em=2",
+            "topicText": "Learn how to code on Hypertext Markup Language and Cascading Stylesheet"
+          }
+        ],
+        "trackCareers": [
+          {
+            "careerName": "Front-end Developer",
+            "careerText": "A front-end developer will be responsible for the visual aspects of a website/webapp. Navigation, animations, graphics, layout, and organization, all these will fall under the front-end developers work.",
+            "careerSalary": "₱829,745"
+          },
+          {
+            "careerName": "Back-end Developer",
+            "careerText": "A back-end developer will work on the server-side of the website/webapp. Back-end developers will also work on databases, it includes creating, maintaining, and configuring databases for use.",
+            "careerSalary": "₱884,193"
+          }
+        ]
+      }
+    ]
+  }
+}

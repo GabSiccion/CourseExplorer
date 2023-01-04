@@ -1,48 +1,44 @@
 body {
-	background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 .jumbotron {
-	width: 100%;
-	background-color: green;
-	color: white;
+  width: 100%;
+  background-color: green;
+  color: white;
 }
 
 .jumbotron h1 {
-	padding: 1rem 0 1rem 0;
-}
-
-.push-spaces {
-	padding-top: 1em;
+  padding: 1rem 0 1rem 0;
 }
 
 .card-container {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .card {
-	min-width: 24rem;
-	max-width: 24rem;
+  min-width: 24rem;
+  max-width: 24rem;
 }
 
 .card-text {
-	min-height: 8rem;
-	max-height: 8rem;
-	overflow: hidden;
+  min-height: 8rem;
+  max-height: 8rem;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
-	.card-container {
-		display: flex;
-		flex-direction: row;
-	}
-	.card {
-		min-width: 24rem;
-		max-width: 24rem;
-	}
+  .card-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .card {
+    min-width: 20rem;
+    max-width: 20rem;
+  }
 }
 
 .career-title {
-	display: inline-block;
+  display: inline-block;
 }

@@ -25,43 +25,116 @@ var data;
 
 onValue(coursesRef, (snapshot) => {
   //JSON DATA
-  const data = snapshot.toJSON();
+  data = snapshot.toJSON();
 
   //NAV SELECT OPTIONS
   var ul = document.getElementById("dropdown-menu");
   ul.innerHTML = "";
 
-  for (let element in data) {
+  for (let index in data) {
     let li = document.createElement("li");
     let a = document.createElement("a");
+
+    let { courseName } = data[index];
     a.className = "dropdown-item";
-    a.href =
-      "exploration.html?course=" +
-      data[element]["headertext"].replace(/\s+/g, "-");
-    a.innerHTML = data[element]["headertext"];
+    a.href = `exploration.html?course=${courseName.replace(/\s+/g, "_")}`;
+    a.innerHTML = courseName;
 
     li.appendChild(a);
     ul.appendChild(li);
   }
 
   //COURSE CONTENT
+  let { courseName, courseText, courseTracks } = data[selectedcourse];
+  console.log(`${courseName} ${courseText}`);
+
   let contentbox = document.getElementById("content-box");
   contentbox.innerHTML = "";
 
   let container = document.createElement("div");
-  container.className = "container mt-4";
+  container.className = "container pt-4 pb-4";
 
   let h1 = document.createElement("h1");
-  h1.innerHTML = data[selectedcourse]["headertext"];
+  h1.innerHTML = courseName;
 
   let p = document.createElement("p");
-  p.innerHTML = data[selectedcourse]["articletext"];
+  p.innerHTML = courseText;
 
-  container.append(h1, p);
+  let coursecontainer = document.createElement("div");
+  coursecontainer.className = "course-container";
+  coursecontainer.append(h1, p);
+
+  container.append(coursecontainer);
 
   //COURSE TRACKS
+  for (let trackindex in courseTracks) {
+    let { trackName, trackText, trackTopics, trackCareers } =
+      courseTracks[trackindex];
+
+    let trackname = document.createElement("h2");
+    trackname.innerHTML = trackName;
+
+    let tracktext = document.createElement("p");
+    tracktext.innerHTML = trackText;
+
+    //TRACK TOPICS
+    let topiccontainer = document.createElement("div");
+    topiccontainer.className = "card-container overflow-auto mb-4";
+    for (let topicindex in trackTopics) {
+      let { topicName, topicPowerpoint, topicText } = trackTopics[topicindex];
+
+      let topiccard = document.createElement("div");
+      topiccard.className = "card m-1";
+
+      let topiccardbody = document.createElement("div");
+      topiccardbody.className = "card-body";
+
+      let topicname = document.createElement("p");
+      topicname.className = "card-title fw-bold";
+      topicname.innerHTML = topicName;
+
+      let topictext = document.createElement("p");
+      topictext.className = "card-text";
+      topictext.innerHTML = topicText;
+
+      let topicpowerpoint = document.createElement("a");
+      topicpowerpoint.className = "btn btn-success";
+      topicpowerpoint.role = "button";
+      topicpowerpoint.href = topicPowerpoint;
+      topicpowerpoint.innerHTML = "View topics and lessonss";
+      topicpowerpoint.target = "_blank";
+
+      topiccardbody.append(topicname, topictext, topicpowerpoint);
+      topiccard.append(topiccardbody);
+      topiccontainer.append(topiccard);
+    }
+
+    //TRACK CAREERS
+    let careercontainer = document.createElement("div");
+    careercontainer.className = "career-container mb-4";
+    for (let careerindex in trackCareers) {
+      let { careerName, careerText, careerSalary } = trackCareers[careerindex];
+
+      let careername = document.createElement("h4");
+      careername.innerHTML = careerName;
+
+      let careertext = document.createElement("p");
+      careertext.innerHTML = careerText;
+
+      let careersalary = document.createElement("p");
+      careersalary.innerHTML = careerSalary;
+    }
+
+    //APPENDING TO CONTAINER
+    let trackcontainer = document.createElement("div");
+    trackcontainer.className = "track-container";
+    trackcontainer.append(trackname, tracktext, topiccontainer);
+
+    container.append(trackcontainer);
+  }
+
+  /*
   var trackcontainer = document.createElement("div");
-  trackcontainer.id = "trackcontainer";
 
   for (let obj in data[selectedcourse]["tracks"]) {
     let track = document.createElement("div");
@@ -149,6 +222,8 @@ onValue(coursesRef, (snapshot) => {
     track.append(cardcontainer, careercontainer);
     trackcontainer.append(track);
   }
-  container.append(trackcontainer);
+  */
+
+  //container.append(trackcontainer);
   contentbox.append(container);
 });
