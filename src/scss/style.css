@@ -1,5 +1,6 @@
 body {
   background-color: #f8f8f8;
+  text-align: justify;
 }
 
 .jumbotron {
@@ -28,6 +29,27 @@ body {
   overflow: hidden;
 }
 
+.career-container {
+  display: flex;
+  width: inherit;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.career-container p {
+  margin-bottom: 0.5rem;
+}
+
+.career-name {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.career-salary {
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
 @media (max-width: 768px) {
   .card-container {
     display: flex;
@@ -37,8 +59,10 @@ body {
     min-width: 20rem;
     max-width: 20rem;
   }
-}
-
-.career-title {
-  display: inline-block;
+  .career-container {
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

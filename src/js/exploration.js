@@ -78,6 +78,9 @@ onValue(coursesRef, (snapshot) => {
     tracktext.innerHTML = trackText;
 
     //TRACK TOPICS
+    let topiccontainerheader = document.createElement("h3");
+    topiccontainerheader.innerHTML = "Track Topics";
+
     let topiccontainer = document.createElement("div");
     topiccontainer.className = "card-container overflow-auto mb-4";
     for (let topicindex in trackTopics) {
@@ -110,25 +113,41 @@ onValue(coursesRef, (snapshot) => {
     }
 
     //TRACK CAREERS
+    let careercontainerheader = document.createElement("h3");
+    careercontainerheader.innerHTML = "Career Options";
+
     let careercontainer = document.createElement("div");
     careercontainer.className = "career-container mb-4";
     for (let careerindex in trackCareers) {
       let { careerName, careerText, careerSalary } = trackCareers[careerindex];
 
-      let careername = document.createElement("h4");
-      careername.innerHTML = careerName;
+      let careercard = document.createElement("div");
+      careercard.className = "career-card";
+
+      let careername = document.createElement("p");
+      careername.innerHTML = `<span class="career-name">${careerName}</span>`;
 
       let careertext = document.createElement("p");
       careertext.innerHTML = careerText;
 
       let careersalary = document.createElement("p");
-      careersalary.innerHTML = careerSalary;
+      careersalary.innerHTML = `median salary per year <span class="career-salary">${careerSalary}</span> of a ${careerName}`;
+
+      careercard.append(careername, careertext, careersalary);
+      careercontainer.append(careercard);
     }
 
     //APPENDING TO CONTAINER
     let trackcontainer = document.createElement("div");
     trackcontainer.className = "track-container";
-    trackcontainer.append(trackname, tracktext, topiccontainer);
+    trackcontainer.append(
+      trackname,
+      tracktext,
+      topiccontainerheader,
+      topiccontainer,
+      careercontainerheader,
+      careercontainer
+    );
 
     container.append(trackcontainer);
   }
