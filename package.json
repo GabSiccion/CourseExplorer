@@ -1,23 +1,23 @@
 {
-	"name": "courseexplorer",
-	"version": "1.0.0",
-	"description": "",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "parcel serve src/index.html src/exploration.html src/about.html --public-url / --dist-dir dist",
-		"build": "parcel build src/index.html src/exploration.html src/about.html --public-url / --dist-dir GabSiccion.github.io"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"bootstrap": "^5.2.3",
-		"firebase": "^9.14.0"
-	},
-	"devDependencies": {
-		"@parcel/transformer-sass": "^2.8.0",
-		"parcel": "^2.8.0",
-		"process": "^0.11.10",
-		"sharp": "^0.31.2"
-	}
+  "name": "courseexplorer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel serve src/index.html src/exploration.html src/about.html src/survey.html --public-url / --dist-dir dist",
+    "build": "parcel build src/index.html src/exploration.html src/about.html src/survey.html --public-url / --dist-dir GabSiccion.github.io"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "firebase": "^9.14.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.8.0",
+    "process": "^0.11.10",
+    "sharp": "^0.31.2"
+  }
 }
