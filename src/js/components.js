@@ -1,6 +1,6 @@
 export class Header extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
       <nav class="navbar navbar-expand-sm navbar-light bg-light" id="nav" >
 			<div class="container">
 				<a href="#" class="navbar-brand mb-0 h1"> CourseExplorer </a>
@@ -20,7 +20,7 @@ export class Header extends HTMLElement {
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a href="index.html" class="nav-link active"> Home </a>
+							<a href="index.html" class="nav-link"> Home </a>
 						</li>
 						<li class="nav-item active dropdown">
 							<a
@@ -41,10 +41,13 @@ export class Header extends HTMLElement {
 						<li class="nav-item active">
 							<a href="about.html" class="nav-link"> About </a>
 						</li>
+						<li class="nav-item active">
+							<a href="survey.html" class="nav-link"> Survey </a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
     `;
-	}
+  }
 }
