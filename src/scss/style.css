@@ -5,7 +5,7 @@ body {
 
 .jumbotron {
   width: 100%;
-  background-color: green;
+  background-color: #008000;
   color: white;
 }
 
@@ -65,4 +65,10 @@ body {
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+
+#surveyId {
+  border: none;
+  max-width: 100%;
+  max-height: 100vh;
 }
