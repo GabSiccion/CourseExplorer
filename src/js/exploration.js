@@ -65,6 +65,7 @@ onValue(coursesRef, (snapshot) => {
   coursecontainer.append(h1, p);
 
   let anchorbutton = document.createElement("a");
+  anchorbutton.href = `quiz.html?course=${selectedcourse}`;
   anchorbutton.innerHTML = "Start Quiz";
   anchorbutton.className = "btn btn-dark ml-4";
 
@@ -155,6 +156,7 @@ onValue(coursesRef, (snapshot) => {
       careercontainerheader,
       careercontainer
     );
+
     container.append(trackcontainer);
   }
 
