@@ -81,6 +81,12 @@ body {
   margin-bottom: 0.2rem;
 }
 
+#explorationJumbotron {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .card-container {
     display: flex;

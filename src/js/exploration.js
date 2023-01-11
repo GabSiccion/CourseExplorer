@@ -64,6 +64,13 @@ onValue(coursesRef, (snapshot) => {
   coursecontainer.className = "course-container";
   coursecontainer.append(h1, p);
 
+  let anchorbutton = document.createElement("a");
+  anchorbutton.innerHTML = "Start Quiz";
+  anchorbutton.className = "btn btn-dark ml-4";
+
+  let explorationjumbotron = document.getElementById("explorationJumbotron");
+  explorationjumbotron.append(anchorbutton);
+
   container.append(coursecontainer);
 
   //COURSE TRACKS
@@ -131,7 +138,7 @@ onValue(coursesRef, (snapshot) => {
       careertext.innerHTML = careerText;
 
       let careersalary = document.createElement("p");
-      careersalary.innerHTML = `median salary per year <span class="career-salary">${careerSalary}</span> of a ${careerName}`;
+      careersalary.innerHTML = `<span class="career-salary">${careerSalary}</span> median salary per year of a ${careerName}`;
 
       careercard.append(careername, careertext, careersalary);
       careercontainer.append(careercard);
@@ -148,7 +155,6 @@ onValue(coursesRef, (snapshot) => {
       careercontainerheader,
       careercontainer
     );
-
     container.append(trackcontainer);
   }
 
