@@ -11,10 +11,52 @@
     <link rel="stylesheet" href="scss/style.scss" />
   </head>
   <body>
-    <main-header></main-header>
     <div class="jumbotron">
-      <div class="container">
-        <h1 class="align-middle page-title">Quiz</h1>
+      <div class="container mb-4">
+        <h1 class="align-middle" id="pageTitle">Quiz</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="quiz-container">
+        <div class="quiz-box" id="quiz-box">
+          <p id="number" class="question-number"></p>
+          <p id="question"></p>
+          <div class="button-box">
+            <button
+              value="a"
+              type="button"
+              id="aButton"
+              class="btn btn-success"
+            ></button>
+            <button
+              value="b"
+              type="button"
+              id="bButton"
+              class="btn btn-success"
+            ></button>
+            <button
+              value="c"
+              type="button"
+              id="cButton"
+              class="btn btn-success"
+            ></button>
+            <button
+              value="d"
+              type="button"
+              id="dButton"
+              class="btn btn-success"
+            ></button>
+          </div>
+        </div>
+        <div class="info-box" id="info-box" hidden>
+          <div class="info-footer" id="info-footer">
+            <div class="mb-2" id="scores-box">
+              <p class="h3 text-success">Your Scores</p>
+            </div>
+            <label for="userName">Your Name</label>
+            <input type="text" id="userName" placeholder="Optional" />
+          </div>
+        </div>
       </div>
     </div>
   </body>
