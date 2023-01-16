@@ -89,8 +89,12 @@ function displayScore() {
   let scoresBox = document.getElementById("scores-box");
   let infoFooter = document.getElementById("info-footer");
   infoFooter.append(submitButton);
+
   let highestScoredTrack = Object.keys(tracks).reduce((a, b) =>
     tracks[a] > tracks[b] ? a : b
+  );
+  let lowestScoredTrack = Object.keys(tracks).reduce((a, b) =>
+    tracks[a] < tracks[b] ? a : b
   );
   let total = Object.values(tracks).reduce(
     (partialSum, a) => partialSum + a,
@@ -113,7 +117,13 @@ function displayScore() {
 
   let recommendation = document.createElement("p");
   recommendation.className = "mt-2";
-  recommendation.innerHTML = `Recommended to take <span style="font-weight:Bold;"> ${highestScoredTrack} </span>on this course.`;
+  if (highestScoredTrack == lowestScoredTrack && highestScoredTrack <= 0) {
+    recommendation.innerHTML = `You scored 0 in all tracks questions, try again.`;
+  } else if (highestScoredTrack == lowestScoredTrack) {
+    recommendation.innerHTML = `You scored equally in all tracks, you're recommended to take the track that aligns with your interests.`;
+  } else {
+    recommendation.innerHTML = `Recommended to take <span style="font-weight:Bold;"> ${highestScoredTrack} </span>for this course.`;
+  }
   scoresBox.append(recommendation);
 
   quizBox.hidden = true;
