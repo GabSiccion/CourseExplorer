@@ -112,7 +112,7 @@ onValue(coursesRef, (snapshot) => {
       topicpowerpoint.className = "btn btn-success";
       topicpowerpoint.role = "button";
       topicpowerpoint.href = topicPowerpoint;
-      topicpowerpoint.innerHTML = "View topics and lessonss";
+      topicpowerpoint.innerHTML = "View topics and lessons";
       topicpowerpoint.target = "_blank";
 
       topiccardbody.append(topicname, topictext, topicpowerpoint);
