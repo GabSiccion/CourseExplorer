@@ -29,3 +29,10 @@ onValue(coursesRef, (snapshot) => {
     ul.appendChild(li);
   }
 });
+
+$(document).ready(function () {
+  document.getElementById("csAnchor").href =
+    "exploration.html?course=Computer_Science";
+  document.getElementById("itAnchor").href =
+    "exploration.html?course=Information_Technology";
+});
