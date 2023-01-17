@@ -178,7 +178,7 @@ body {
 
 .hero-backgroundimage {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/cs.jpg");
+    url("../images/hero-bp-full.jpg");
 }
 
 .hero-container {
@@ -236,5 +236,9 @@ body {
 
   .anchors-container {
     grid-template-columns: 1fr;
+  }
+  .hero-backgroundimage {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../images/hero-bp-vert.jpg");
   }
 }
