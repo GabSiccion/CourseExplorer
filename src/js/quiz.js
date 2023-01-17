@@ -29,6 +29,11 @@ submitButton.className = "btn btn-success";
 submitButton.addEventListener("click", quizEnd);
 submitButton.href = `exploration.html?course=${getSelectedCourse()}`;
 submitButton.innerHTML = "Submit";
+const surveysubmitButton = document.createElement("a");
+surveysubmitButton.className = "btn btn-success";
+surveysubmitButton.addEventListener("click", quizEnd);
+surveysubmitButton.href = `survey.html`;
+surveysubmitButton.innerHTML = "Submit & go to survey";
 
 let pagetitle = document.getElementById("pageTitle");
 pagetitle.innerHTML = `${getSelectedCourse().replace(/_/g, " ")} Quiz`;
@@ -88,7 +93,10 @@ function displayScore() {
   let infoBox = document.getElementById("info-box");
   let scoresBox = document.getElementById("scores-box");
   let infoFooter = document.getElementById("info-footer");
-  infoFooter.append(submitButton);
+  let submitButtonContainer = document.getElementById(
+    "submit-button-container"
+  );
+  submitButtonContainer.append(submitButton, surveysubmitButton);
 
   let highestScoredTrack = Object.keys(tracks).reduce((a, b) =>
     tracks[a] > tracks[b] ? a : b
