@@ -262,3 +262,9 @@ body {
       url("../images/hero-bp-vert.jpg");
   }
 }
+
+.survey-form-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
