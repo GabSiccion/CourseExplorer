@@ -152,6 +152,18 @@ body {
   padding: 2rem;
 }
 
+.submit-button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}
+
+@media (max-width: 500px) {
+  .submit-button-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .info-line {
   margin: 0;
 }
@@ -177,7 +189,7 @@ body {
 }
 
 .hero-backgroundimage {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../images/hero-bp-full.jpg");
 }
 
@@ -204,6 +216,14 @@ body {
 
 .hero-image {
   width: 24rem;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+}
+
+.hero-text .quotation {
+  font-weight: 600;
 }
 
 .anchors-container {
