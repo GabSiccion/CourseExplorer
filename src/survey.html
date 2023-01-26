@@ -7,7 +7,7 @@
     <title>CourseExplorer</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/survey.js"></script>
     <link rel="stylesheet" href="scss/style.scss" />
   </head>
   <!-- Google tag (gtag.js) -->
@@ -31,25 +31,38 @@
         <h1 class="align-middle">Survey</h1>
       </div>
     </div>
-    <div class="container">
-      <div class="survey-form-container">
-        <iframe
-          title="survey"
-          id="surveyId"
-          onload="iframeLoaded()"
-          width="800px"
-          height="780px"
-          src="https://forms.office.com/Pages/ResponsePage.aspx?id=aF0ZCJABuEeDRLFy8jzpxSU7CrI9dL5NofYT6ExSGk1UQTNBSk83SFFNMDUyWVo1Qk82M1dGTDM3Ny4u&embed=true"
-          frameborder="0"
-          marginwidth="0"
-          marginheight="0"
-          allowfullscreen
-          webkitallowfullscreen
-          mozallowfullscreen
-          msallowfullscreen
+    <div class="container mt-4">
+      <div class="icf-container" id="icf-container">
+        <p>
+          Good day! We are from the 4th Year Bachelor of Science in Information
+          Technology of De La Salle University - Dasmariñas students. As a
+          partial fulfillment of our Capstone requirement, we are conducting a
+          study entitled “Course Explorer: Web-Based Learning Software for
+          Computer Studies Course Exploration at De La Salle University -
+          Dasmariñas” which is an online Course Suggestion system that aims to
+          inform students about subjects within the courses of Computer Science
+          and Information Technology and aims to suggest a possible course by
+          answering questions inside a quiz. Thie researcges welcomes you to
+          take part in our study and explore our system; participation is
+          entirely optional, and you may change your mind or withdraw at any
+          moment.
+        </p>
+        <p>
+          Here are the Informed Consent letter. Please read them before
+          answering the CourseExplorer survey.
+        </p>
+        <a href="https://1drv.ms/b/s!AjpdONewkj-lgSlr8eJxuQ6fv3ZV?e=HaZkvJ"
+          >Informed Consent (Tagalog)</a
         >
-        </iframe>
+        <a href="https://1drv.ms/b/s!AjpdONewkj-lgSjcZOFmDra4PKfQ?e=7k8IxN"
+          >Informed Consent (English)</a
+        >
+        <button class="btn btn-success mt-4" id="icfButton">
+          I have read the informed consent form and wish to participate the
+          survey
+        </button>
       </div>
+      <div class="survey-form-container" id="survey-form-container"></div>
     </div>
   </body>
 </html>

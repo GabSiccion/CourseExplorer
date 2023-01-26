@@ -268,3 +268,8 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.icf-container {
+  display: flex;
+  flex-direction: column;
+}
