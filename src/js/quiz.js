@@ -56,11 +56,11 @@ function buildQuiz() {
     const { a, b, c, d } = choices;
 
     elementnumber.innerHTML = currentQuestionNumber + 1;
-    elementQuestion.innerHTML = question;
-    elementAButton.innerHTML = a;
-    elementBButton.innerHTML = b;
-    elementCButton.innerHTML = c;
-    elementDButton.innerHTML = d;
+    elementQuestion.innerHTML = `<pre>${question}</pre>`;
+    elementAButton.innerHTML = `<pre>${a}</pre>`;
+    elementBButton.innerHTML = `<pre>${b}</pre>`;
+    elementCButton.innerHTML = `<pre>${c}</pre>`;
+    elementDButton.innerHTML = `<pre>${d}</pre>`;
   }
 }
 
