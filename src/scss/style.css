@@ -273,3 +273,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.btn pre {
+  margin: 0;
+}
