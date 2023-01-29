@@ -48,6 +48,12 @@ $(document).ready(function () {
   });
 });
 
+function toProperString(string) {
+  string = string.replace(/</g, "&lt;");
+  string = string.replace(/>/g, "&gt;;");
+  return string;
+}
+
 function buildQuiz() {
   if (Object.keys(questions).length < currentQuestionNumber + 1) {
     displayScore();
@@ -56,11 +62,11 @@ function buildQuiz() {
     const { a, b, c, d } = choices;
 
     elementnumber.innerHTML = currentQuestionNumber + 1;
-    elementQuestion.innerHTML = `<pre>${question}</pre>`;
-    elementAButton.innerHTML = `<pre>${a}</pre>`;
-    elementBButton.innerHTML = `<pre>${b}</pre>`;
-    elementCButton.innerHTML = `<pre>${c}</pre>`;
-    elementDButton.innerHTML = `<pre>${d}</pre>`;
+    elementQuestion.innerHTML = `${toProperString(question)}`;
+    elementAButton.innerHTML = `${toProperString(a)}`;
+    elementBButton.innerHTML = `${toProperString(b)}`;
+    elementCButton.innerHTML = `${toProperString(c)}`;
+    elementDButton.innerHTML = `${toProperString(d)}`;
   }
 }
 
