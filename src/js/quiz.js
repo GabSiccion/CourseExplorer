@@ -12,6 +12,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const questionsRef = ref(db, `questions/${getSelectedCourse()}`);
 const scoresRef = ref(db, `scores/`);
+const courseScoresRef = ref(db, `courses/${getSelectedCourse()}/scores`);
 
 // Document Elements
 const elementnumber = document.getElementById("number");
@@ -176,6 +177,16 @@ function quizEnd() {
   );
 
   push(scoresRef, {
+    username: userName,
+    date: currentDate,
+    course: course,
+    quizlength: quizLength,
+    totalscore: totalScore,
+    tracksscores: tracks,
+    recommendation: highestScoredTrack,
+  });
+
+  push(courseScoresRef, {
     username: userName,
     date: currentDate,
     course: course,
