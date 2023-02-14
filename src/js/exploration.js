@@ -131,19 +131,15 @@ onValue(coursesRef, (snapshot) => {
     for (let careerindex in trackCareers) {
       let { careerText, careerSalary } = trackCareers[careerindex];
 
+      let careercardcontent = `
+      <p><span class="career-name">${careerindex}</span></p>
+      <p>${careerText}</p>
+      <p><span class="career-salary">${careerSalary}</span> median salary per year of a ${careerindex}</p>`;
+
       let careercard = document.createElement("div");
       careercard.className = "career-card";
+      careercard.innerHTML += careercardcontent;
 
-      let careername = document.createElement("p");
-      careername.innerHTML = `<span class="career-name">${careerindex}</span>`;
-
-      let careertext = document.createElement("p");
-      careertext.innerHTML = careerText;
-
-      let careersalary = document.createElement("p");
-      careersalary.innerHTML = `<span class="career-salary">${careerSalary}</span> median salary per year of a ${careerindex}`;
-
-      careercard.append(careername, careertext, careersalary);
       careercontainer.append(careercard);
     }
 
