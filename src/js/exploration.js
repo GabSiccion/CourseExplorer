@@ -98,27 +98,12 @@ onValue(coursesRef, (snapshot) => {
 
       let topiccard = document.createElement("div");
       topiccard.className = "card m-1";
+      topiccard.innerHTML = `<div class="card-body">
+      <p class="card-title fw-bold">${topicindex}</p>
+      <p class="card-text">${topicText}</p>
+      <a class="btn btn-success" role="button" href="${topicPowerpoint}" target="_blank">View topics and lessons</a>
+      </div>`;
 
-      let topiccardbody = document.createElement("div");
-      topiccardbody.className = "card-body";
-
-      let topicname = document.createElement("p");
-      topicname.className = "card-title fw-bold";
-      topicname.innerHTML = topicindex;
-
-      let topictext = document.createElement("p");
-      topictext.className = "card-text";
-      topictext.innerHTML = topicText;
-
-      let topicpowerpoint = document.createElement("a");
-      topicpowerpoint.className = "btn btn-success";
-      topicpowerpoint.role = "button";
-      topicpowerpoint.href = topicPowerpoint;
-      topicpowerpoint.innerHTML = "View topics and lessons";
-      topicpowerpoint.target = "_blank";
-
-      topiccardbody.append(topicname, topictext, topicpowerpoint);
-      topiccard.append(topiccardbody);
       topiccontainer.append(topiccard);
     }
 
@@ -129,17 +114,15 @@ onValue(coursesRef, (snapshot) => {
     let careercontainer = document.createElement("div");
     careercontainer.className = "career-container mb-4";
 
-    for (let careerindex in trackCareers) {
-      let { careerText, careerSalary } = trackCareers[careerindex];
-
-      let careercardcontent = `
-      <p><span class="career-name">${careerindex}</span></p>
-      <p>${careerText}</p>
-      <p><span class="career-salary">${careerSalary}</span> median salary per year of a ${careerindex}</p>`;
+    for (let career in trackCareers) {
+      let { careerText, careerSalary } = trackCareers[career];
 
       let careercard = document.createElement("div");
       careercard.className = "career-card";
-      careercard.innerHTML += careercardcontent;
+      careercard.innerHTML += `
+      <p><span class="career-name">${career}</span></p>
+      <p>${careerText}</p>
+      <p><span class="career-salary">${careerSalary}</span> median salary per year of a ${career}</p>`;
 
       careercontainer.append(careercard);
     }
